@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.css';
-import Login from './login'; // 👈 make sure this path is correct
+import Login from './login';
+import Signup from './signup';
 
 // --- TypingAnimation Component ---
 const TypingAnimation = ({ sentences, typingSpeed = 20, pauseDuration = 2000 }) => {
@@ -101,6 +102,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

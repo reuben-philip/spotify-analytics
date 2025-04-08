@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './login.css'; 
+import './signup.css'; 
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className="login-wrapper">
       <form className="form">
@@ -16,10 +15,10 @@ const Login = () => {
         </span>
         <span className="span"><a href="#">Forgot password?</a></span>
         <input className="submit" type="submit" value="Log in" />
-        <span className="span">Don't have an account? <a href="/signup">Sign up</a></span>
+        <span className="span">Don't have an account? <a href="signup.jsx">Sign up</a></span>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;
