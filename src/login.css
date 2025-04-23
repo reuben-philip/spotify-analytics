@@ -1,70 +1,301 @@
-.login-wrapper {
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(90deg,orange , red);
+}
+
+.login-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
-  min-height: 100vh;
-  background-color: black;
+  background: linear-gradient(135deg,orange,red);
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+/* Animated bubbles background */
+.bubbles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 350px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.input-span {
-  width: 110%;
-  display: inline-flex;
-  flex-direction: column;
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 255, 255);
+  background: transparent;
+  animation: float 8s ease-in-out infinite;
+  bottom: -150px;
 }
 
-.label {
-  color: orangered;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  text-align: left;
+/* Generate bubbles with different sizes and positions */
+.bubble:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 10%;
+  animation-duration: 15s;
+  animation-delay: 0s;
 }
 
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  border: 2px solid white;
-  background-color: black;
-  color: white;
-  font-size: 1rem;
-  box-sizing: border-box;
+.bubble:nth-child(2) {
+  width: 60px;
+  height: 60px;
+  left: 20%;
+  animation-duration: 12s;
+  animation-delay: 1s;
 }
 
-.submit {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 999px;
-  background-color: #555;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.bubble:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  left: 35%;
+  animation-duration: 18s;
+  animation-delay: 2s;
 }
 
-.submit:hover {
-  background-color: orangered;
+.bubble:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  animation-duration: 10s;
+  animation-delay: 0.5s;
 }
 
-.span {
-  color: white;
-  font-size: 0.9rem;
+.bubble:nth-child(5) {
+  width: 70px;
+  height: 70px;
+  left: 65%;
+  animation-duration: 14s;
+  animation-delay: 1.5s;
+}
+
+.bubble:nth-child(6) {
+  width: 90px;
+  height: 90px;
+  left: 80%;
+  animation-duration: 16s;
+  animation-delay: 2.5s;
+}
+
+.bubble:nth-child(7) {
+  width: 40px;
+  height: 40px;
+  left: 5%;
+  animation-duration: 11s;
+  animation-delay: 0.2s;
+}
+
+.bubble:nth-child(8) {
+  width: 110px;
+  height: 110px;
+  left: 25%;
+  animation-duration: 20s;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(9) {
+  width: 55px;
+  height: 55px;
+  left: 45%;
+  animation-duration: 13s;
+  animation-delay: 1.2s;
+}
+
+.bubble:nth-child(10) {
+  width: 75px;
+  height: 75px;
+  left: 70%;
+  animation-duration: 17s;
+  animation-delay: 2.2s;
+}
+
+.bubble:nth-child(11) {
+  width: 95px;
+  height: 95px;
+  left: 90%;
+  animation-duration: 19s;
+  animation-delay: 1.8s;
+}
+
+.bubble:nth-child(12) {
+  width: 65px;
+  height: 65px;
+  left: 15%;
+  animation-duration: 14s;
+  animation-delay: 0.8s;
+}
+
+.bubble:nth-child(13) {
+  width: 45px;
+  height: 45px;
+  left: 40%;
+  animation-duration: 12s;
+  animation-delay: 2.8s;
+}
+
+.bubble:nth-child(14) {
+  width: 85px;
+  height: 85px;
+  left: 60%;
+  animation-duration: 16s;
+  animation-delay: 0.3s;
+}
+
+.bubble:nth-child(15) {
+  width: 105px;
+  height: 105px;
+  left: 75%;
+  animation-duration: 21s;
+  animation-delay: 1.6s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-600px) rotate(180deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-1200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Login box */
+.login-box {
+  width: 420px;
+  max-width: 90%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  position: relative;
+}
+
+.login-box h1 {
+  font-size: 28px;
   text-align: center;
+  margin-bottom: 25px;
+  color:orangered;
 }
 
-.span a {
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+}
+
+.input-group input::placeholder {
+  color: #777;
+}
+
+.options-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+}
+
+.remember-me input {
+  margin-right: 8px;
+}
+
+.remember-me label {
+  font-size: 14px;
+  color: #444;
+}
+
+.forgot-link {
+  color: #ff8c42;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, orange, red);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 95, 95, 0.4);
+}
+
+.signup-prompt {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+}
+
+.signup-prompt a {
   color: orangered;
   text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-prompt a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-box {
+    width: 90%;
+    padding: 30px;
+  }
 }
